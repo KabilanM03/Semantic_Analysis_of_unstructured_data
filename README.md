@@ -1,15 +1,61 @@
-Semantic-Analysis-of-unstructured-data
-Purpose: To create a web-based search application that allows users to search for Myntra fashion products by querying their descriptions and other attributes.
+# **Semantic Analysis of Unstructured Data**
+A web-based search application for querying **Myntra fashion products** based on descriptions and attributes.
 
-Technology Stack:
+---
 
-Backend: Elasticsearch: A search engine used to store, index, and search product data. SentenceTransformers: A Python library for encoding search queries into vectors using pre-trained models. Frontend: Streamlit: A Python library for building interactive web applications. Core Components:
+## **1. Project Overview**
+This project implements a **semantic search engine** that enables users to search for **fashion products** using **natural language queries**. The application is built using **Elasticsearch** for indexing and retrieval and **Streamlit** for an interactive web interface.
 
-Elasticsearch Setup:
+---
 
-Connection: The application connects to an Elasticsearch instance using basic authentication and a CA certificate. Indexing: An index named all_products is created to store product information. Index Mapping: Defines the structure of the product data, including fields for product ID, name, brand, gender, price, number of images, description, primary color, and a dense vector for the description. Search Functionality:
+## **2. Technology Stack**
+The system leverages the following technologies:
 
-Encoding Search Queries: Uses the all-mpnet-base-v2 model from SentenceTransformers to encode user search queries into vectors. k-NN Search: Performs a k-nearest neighbors search on the DescriptionVector field in Elasticsearch to find the most relevant products based on the encoded search query. Result Display: Returns and displays the product name and description for the top matching products. Streamlit Web Interface:
+### **Backend**
+- **Elasticsearch** – Stores, indexes, and retrieves product data.
+- **SentenceTransformers** – Encodes search queries into vector representations using a **pre-trained deep learning model**.
 
-User Input: Users can enter search queries into a text input field. Search Button: Triggers the search function when clicked. Results Display: Displays the search results, including product names and descriptions, in a user-friendly format.
+### **Frontend**
+- **Streamlit** – Provides an interactive web-based interface for searching fashion products.
 
+---
+
+## **3. Core Components**
+The system consists of the following key modules:
+
+### **Elasticsearch Setup**
+- **Connection**: Establishes a secure connection to an **Elasticsearch instance** using **basic authentication** and a **CA certificate**.
+- **Indexing**: Creates an index named `all_products` to store product information.
+- **Index Mapping**: Defines the structure of product data, including:
+  - **Product ID**
+  - **Product Name**
+  - **Brand**
+  - **Gender**
+  - **Price**
+  - **Number of Images**
+  - **Product Description**
+  - **Primary Colour**
+  - **Dense Vector Representation** (for similarity search)
+
+---
+
+### **Search Functionality**
+- **Encoding Search Queries**:
+  - Utilises the **all-mpnet-base-v2 model** from **SentenceTransformers** to transform search queries into vector representations.
+- **k-NN Search**:
+  - Performs a **k-nearest neighbours** search on the `DescriptionVector` field in **Elasticsearch** to find the most relevant products.
+- **Result Display**:
+  - Retrieves and presents the **top matching products** based on similarity scores.
+
+---
+
+### **Streamlit Web Interface**
+The frontend provides an intuitive web interface, featuring:
+- **User Input**:
+  - Users can enter a **search query** in a text input field.
+- **Search Button**:
+  - Triggers the semantic search when clicked.
+- **Results Display**:
+  - Presents product details (**name, description**) in a **user-friendly format**.
+
+---
